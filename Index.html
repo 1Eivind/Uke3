@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adjektivhistorie</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <style>
+       
+         html { background-color: lightblue;}
+
+        div{
+            float: left;
+            margin: 10px;
+            background-color: rgb(230, 207, 173);
+            
+        }
+
+        .storyBox{
+            border: 10px dashed rgb(102, 21, 35);
+            padding: 30px;
+            font-size: 25px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            width: auto;
+        }
+
+        .startRow{
+            clear:left;
+        }
+
+        .choiceBoxes{
+            font-size: 20px;
+            background-color:  rgb(178, 32, 51) ;
+            border: 2px solid cornflowerblue;
+            border-radius: 50%;
+            padding: 40px;
+            width: 70px;
+            height: 30px;
+            text-align:center;
+        }
+
+        .button {
+            background-color: #54af4c; /*Green*/
+            border: none;
+            color: beige;
+            padding: 15px 32px;
+            border-radius: 78px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+     }
+    
+    </style>
+</head>
+<body>
+
+<div id="app"></div>
+    
+
+
+<script>
+
+    //model
+
+    //const tekst = buildStory - nope, don't need this
+    let førsteOrd = "___";
+    let andreOrd = "___";
+    let thirdWord = "___";
+    let fourthWord = "___";
+
+    //view
+
+    view()
+    function view(){
+        document.getElementById('app').innerHTML = /*HTML*/ `<div class="storyBox">Det var en gang en
+            ${førsteOrd}student som strevde med å lære JavaScript. Han studerte ${andreOrd}hardt
+            og begynte ${thirdWord} å forstå. ${fourthWord}</div>
+<div class="startRow choiceBoxes"  onclick="velgFørsteord(this)">evighets</div> 
+<div class="choiceBoxes"  onclick="velgFørsteord(this)">ung </div>
+
+<div class="startRow choiceBoxes"  onclick="velgAndreord(this)">veldig </div> 
+<div class="choiceBoxes"  onclick="velgAndreord(this)">kjempe</div>
+
+<div class="startRow choiceBoxes"  onclick="velgTredjeord(this)">så smått</div> 
+<div class="choiceBoxes"  onclick="velgTredjeord(this)">etterhvert</div>
+
+<div class="startRow choiceBoxes"  onclick="velgFjerdeord(this)">Hurra!</div> 
+<div class="choiceBoxes"  onclick="velgFjerdeord(this)">Jippi!</div>
+
+<button class="button" onclick="location.reload()">Tilbakestill</button>
+    `}
+
+ 
+
+    //controller
+
+   // function buildStory(){ --no, no need in MVC!!!!
+   //     tekst.innerHTML = /*HTML*/ `
+    //    Once, there was a ${firstWord} ${secondWord} that ${thirdWord} in the ${fourthWord} -
+       // and great things happened. The End.
+      //  `;
+
+        // output.innerHTML = ' Once, there was a ' + firstWord + ' ' + secondWord + 
+        //                    ' that ' + thirdWord + ' in the '+ fourthWord
+        //                   +' - and great things happened. The End.';
+
+    //}
+    
+    function velgFørsteord(valg){
+        førsteOrd = valg.innerHTML;
+        view(); 
+    }    
+
+    function velgAndreord(valg){
+        andreOrd = valg.innerHTML;
+        view(); 
+    }
+
+    function velgTredjeord(valg){
+        thirdWord = valg.innerHTML;
+        view(); 
+    }
+
+    function velgFjerdeord(valg){
+        fourthWord = valg.innerHTML;
+        view(); 
+    }
+
+    </script>
+</body>
+</html>

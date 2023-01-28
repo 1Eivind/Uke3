@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin-top: 25%;
+            text-align: center;
+            background: radial-gradient(aqua, orange);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main" id="content"></div>
+
+    <script>
+
+        // Model
+
+        let bgColorSelect = 'white';
+        let txtColor = 'black';
+        let text  = 'Life Is Really Simple, But We Insist On Making It Complicated. - MVC'
+
+        // View
+        updateView();
+        function updateView() {
+            document.getElementById('content').innerHTML = /*HTML*/`
+                <select oninput="isCheckActive(this)" name="testing">
+                    <option>Velg farge</option>
+                    <option value="#000000">Svart</option>
+                    <option value="#0033cc">Mørke blå</option>
+                    <option value="#e6e6e6">Lys grå</option>
+                    <option value="#1aff1a">Lys grønn</option>
+                    <option value="#ff0000">Lys rød</option>
+                    </select>
+                    <div style="background-color:${bgColorSelect}; color:${txtColor}; font-size:25px; font-family: 'Aboreto', cursive;">${text}</div>
+                <button onclick="isCheckActive(this)" value="#0033cc">KLIKK HER</button>
+            `;
+        }
+
+        // Controller
+        function isCheckActive(checkThis) {
+            bgColorSelect = checkThis.value;
+            if (bgColorSelect == '#000000' || bgColorSelect == '#0033cc') {
+                txtColor = 'white';
+            } else txtColor = 'black';
+            updateView();
+        }
+
+        // console.log(isCheckActive)
+    </script>
